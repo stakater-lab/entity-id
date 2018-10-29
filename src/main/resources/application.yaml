@@ -1,0 +1,27 @@
+logging:
+  level:
+    ROOT: INFO
+    com.stakater.lab: DEBUG
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/vehicle
+    username: stakater
+    password:
+    hikari:
+      auto-commit: false
+  jpa:
+    database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
+    database: POSTGRESQL
+    show-sql: false
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.generate_statistics: false
+      hibernate.jdbc.lob.non_contextual_creation: true
+  liquibase:
+      change-log: classpath:config/liquibase/master.xml
